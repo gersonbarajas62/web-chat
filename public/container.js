@@ -15,3 +15,9 @@ button.addEventListener('click', function () {
     }) 
 })
 //listening to server data and front end receiving sush data 
+
+socket.on('chat:message', function (data) {
+    output.innerHTML +=  ` <p> 
+    <strong>${data.username}</strong>: ${data.message}
+    </p>`
+});
