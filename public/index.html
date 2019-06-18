@@ -7,8 +7,17 @@
     <title>web-chat</title>
 </head>
 <body>
-    <h1> hello </h1>
+    <div id="container">
+        <div id="window">
+            <div id="output"></div>
+            <div id="actions"></div>
+
+        </div>
+        <input type="text" id="username" placeholder="Username">
+        <input type="text" id="message" placeholder="Message">
+    </div>
     <script src="/socket.io/socket.io.js"></script>
     <script src="container.js" charset="utf-8"></script>
+    <button id="send">send</button>
 </body>
 </html>
