@@ -26,6 +26,10 @@ io.on('connection', (socket) => {
         //resending to all sockets that are cnnected 
         io.sockets.emit('chat:message', data)
         
-    } )
+    })
+
+    socket.on('chat:typing', (data) => {
+        socket.broadcast.emit('chat:typing', data)
+    })
 })
 

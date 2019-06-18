@@ -14,10 +14,20 @@ button.addEventListener('click', function () {
         username: username.value
     }) 
 })
-//listening to server data and front end receiving sush data 
+//actions user is typing 
+message.addEventListener('keypress', function () {
+    socket.emit('chat:typing', username.value)
+});
 
+//listening to server data and front end receiving sush data 
 socket.on('chat:message', function (data) {
     output.innerHTML +=  ` <p> 
     <strong>${data.username}</strong>: ${data.message}
+    </p>`
+});
+
+socket.on('chat:typing', function (data) {
+    actions.innerHTML = ` <p> 
+    <em>${data} is typing.</em>
     </p>`
 });
