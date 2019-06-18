@@ -13,10 +13,12 @@ app.get('/', (req, res) => res.send('Hello World!'))
 const server = app.listen(port, () => console.log(`Listening on port ${port}!`))
 
 const SocketIO = require('socket.io')
+
 const io = SocketIO(server);
 
 //webSokets
-io.on('connection', () => {
-    console.log(connected)
+//socket param is comming from const declare in container.js
+io.on('connection', (socket) => {
+    console.log('connected', socket.id)
 })
 
