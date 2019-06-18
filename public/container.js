@@ -25,7 +25,8 @@ socket.on('chat:message', function (data) {
     <strong>${data.username}</strong>: ${data.message}
     </p>`
 });
-
+//receiving data back from server and been serve to front end 
+// about other user typing 
 socket.on('chat:typing', function (data) {
     actions.innerHTML = ` <p> 
     <em>${data} is typing.</em>
