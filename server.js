@@ -20,5 +20,12 @@ const io = SocketIO(server);
 //socket param is comming from const declare in container.js
 io.on('connection', (socket) => {
     console.log('connected', socket.id)
+    //passing params to server so it can work with object on front end
+    // data is info on object
+    socket.on('chat:message', (data) => {
+        //resending to all sockets that are cnnected 
+        io.sockets.emit('chat:message', data)
+        
+    } )
 })
 
